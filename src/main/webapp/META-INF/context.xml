@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/webLaFBS">
+  <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxActive="100" maxIdle="10" maxWait="10000" name="jdbc/MaSourceDeDonnees" password="" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3307/lafbs" username="root"/>
+</Context>
