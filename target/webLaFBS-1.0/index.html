@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenue - Gestion de Salle de Sport</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <ul class="nav-links" id="nav-links">
+      <!-- Liens toujours visibles -->
+      <li><a href="/webLaFBS/stats">Consulter les statistiques</a></li>
+      <li><a href="/webLaFBS/seance">Consulter les séances</a></li>
+      <!-- Les autres seront ajoutés dynamiquement -->
+    </ul>
+  </nav>
+
+  <div class="welcome-section">
+    <h1>Bienvenue sur notre plateforme de gestion</h1>
+    <p>Gérez efficacement vos abonnés, statistiques et séances avec nos outils professionnels.</p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const role = localStorage.getItem("role");
+      const nav = document.getElementById("nav-links");
+
+      if (role === "admin" || role === "consult") {
+        const abonnes = document.createElement("li");
+        abonnes.innerHTML = '<a href="/webLaFBS/lesabonnes">Consulter la liste des abonnés</a>';
+        nav.insertBefore(abonnes, nav.children[0]);
+
+        const abonnements = document.createElement("li");
+        abonnements.innerHTML = '<a href="/webLaFBS/AbonnementServlet">Gérer les abonnements</a>';
+        nav.insertBefore(abonnements, nav.children[1]);
+      }
+    });
+  </script>
+</body>
+</html>
